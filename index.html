@@ -196,6 +196,56 @@
     </a>
   </p>
 </section>
+<section>
+  <h2>Interactive Sample Dataset Explorer</h2>
+
+  <p>Select a dataset to view analyst-style before/after metrics.</p>
+
+  <button onclick="showDataset('pipeline')" style="padding:10px 15px; margin:5px;">Pipeline</button>
+  <button onclick="showDataset('crm')" style="padding:10px 15px; margin:5px;">CRM Hygiene</button>
+  <button onclick="showDataset('lead')" style="padding:10px 15px; margin:5px;">Lead Routing</button>
+
+  <div id="datasetDisplay" style="margin-top:20px; background:white; padding:20px; border-radius:12px;">
+    <p>Click a dataset above to view metrics.</p>
+  </div>
+</section>
+
+<script>
+function showDataset(type) {
+  const data = {
+    pipeline: `
+      <h3>Pipeline Analytics Dataset</h3>
+      <table border="1" cellpadding="10" cellspacing="0" style="width:100%;">
+        <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+        <tr><td>Forecast Accuracy</td><td>62%</td><td>84%</td></tr>
+        <tr><td>Pipeline Coverage</td><td>2.1x</td><td>3.4x</td></tr>
+        <tr><td>Stale Opportunities</td><td>28%</td><td>9%</td></tr>
+      </table>
+    `,
+    crm: `
+      <h3>CRM Hygiene Dataset</h3>
+      <table border="1" cellpadding="10" cellspacing="0" style="width:100%;">
+        <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+        <tr><td>CRM Completeness</td><td>71%</td><td>96%</td></tr>
+        <tr><td>Duplicate Rate</td><td>14%</td><td>2%</td></tr>
+        <tr><td>Dashboard Trust</td><td>Low</td><td>High</td></tr>
+      </table>
+    `,
+    lead: `
+      <h3>Lead Routing Dataset</h3>
+      <table border="1" cellpadding="10" cellspacing="0" style="width:100%;">
+        <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+        <tr><td>Lead Response Time</td><td>18 hrs</td><td>2.5 hrs</td></tr>
+        <tr><td>Lead Conversion</td><td>11%</td><td>19%</td></tr>
+        <tr><td>Manual Touches</td><td>High</td><td>Reduced 60%</td></tr>
+      </table>
+    `
+  };
+
+  document.getElementById("datasetDisplay").innerHTML = data[type];
+}
+</script>
+  
   <footer style="text-align:center; margin-top:40px; padding:20px;">
     <p>Connor Fulk | Revenue Analyst Portfolio</p>
   </footer>
